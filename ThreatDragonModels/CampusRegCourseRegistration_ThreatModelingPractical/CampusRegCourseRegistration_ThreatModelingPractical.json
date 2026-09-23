@@ -33,8 +33,8 @@
                 "text": "Student"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -131,9 +131,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "42dd05fa-96db-4d66-9a98-e96b4ed8c4ee",
+                  "title": "Compromise of Student Account via Phishing / Credential Stuffing",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker steals or guesses valid credentials for Student, impersonating them to log into process 1.0 Authenticate User and modify course enrollments.",
+                  "mitigation": "Enforce Multi-Factor Authentication (MFA), strict password complexity policies, and account lockout rate limiting on login attempts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "8.0"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -150,8 +168,8 @@
                 "text": "Registrar Staff"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -248,9 +266,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "366eee62-92d7-4d10-8eeb-68f07e4c4793",
+                  "title": "Unauthorized Administrative Access via Registrar Session Hijacking",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Spoofing",
+                  "description": "An attacker hijacks an active session of Registrar Staff to inject arbitrary catalog updates or trigger unauthorized database synchronizations.",
+                  "mitigation": "Enforce short session timeouts, binding session IDs to client TLS fingerprints, and requiring re-authentication before administrative actions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "9.0"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -267,8 +303,8 @@
                 "text": "Advisor"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -365,9 +401,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "0185c15c-55c0-4970-9775-a5143778c00e",
+                  "title": "Impersonation of Assigned Advisor",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker compromises an Advisor account or session to access process 4.0 Approve Overload, fraudulently approving unit overloads for unassigned students.",
+                  "mitigation": "Enforce mandatory MFA for all staff roles and validate server-side that the logged-in advisor is explicitly assigned to the requesting student.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "8.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -2495,8 +2549,8 @@
                 "text": "Legacy SIS"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2593,9 +2647,34 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "294d38e6-b955-485f-a7eb-7e42ed310a1a",
+                  "title": "Rogue Legacy System Impersonation",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An unauthorized rogue server impersonates Legacy SIS to send forged acknowledgments back to process 5.0 Sync to SIS.",
+                  "mitigation": "Enforce Mutual TLS (mTLS) with static IP whitelisting between the portal sync connector and Legacy SIS.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "7.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -2716,6 +2795,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Sir Ahdzleebee L. Formentera",
-    "threatTop": 2
+    "threatTop": 6
   }
 }
