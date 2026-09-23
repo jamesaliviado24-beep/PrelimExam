@@ -2691,7 +2691,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Boundary",
-              "name": "Trust Boundary",
+              "name": "Internet Zone - untrusted (TB: internet to portal)",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
@@ -2699,7 +2699,7 @@
               "containedElements": []
             },
             "labels": [
-              "Trust Boundary"
+              "Internet Zone - untrusted (TB: internet to portal)"
             ],
             "id": "2981dc41-b29c-4911-9cd3-7b8dd59a4d51",
             "source": {
@@ -2707,8 +2707,8 @@
               "y": 20
             },
             "target": {
-              "x": 0,
-              "y": 1030
+              "x": -30,
+              "y": 960
             }
           }
         ]
