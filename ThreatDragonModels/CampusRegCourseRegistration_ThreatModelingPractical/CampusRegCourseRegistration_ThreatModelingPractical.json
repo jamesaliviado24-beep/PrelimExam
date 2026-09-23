@@ -438,8 +438,8 @@
                 "text": "1.0 Authenticate User"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -536,12 +536,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "7456a904-0edf-4b99-8869-7a1a9d7b8f68",
+                  "title": "Authentication Bypass via Credential Lookups Injection",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Malicious inputs submitted during login alter the authentication database query executed against D1 Student Records DB, bypassing password validation.",
+                  "mitigation": "Utilize parameterized SQL queries / ORM methods and hash all passwords using Argon2id or bcrypt with salt.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "9.0"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -558,8 +580,8 @@
                 "text": "2.0 Search Catalog"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -656,12 +678,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "bd36a53d-68e9-40b2-9aa6-4fb6626a654b",
+                  "title": "Denial of Service via Resource-Intensive Search Queries",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Unauthenticated users submit wildcards or malformed search queries to 2.0 Search Catalog, overloading 02 Course Catalog DB CPU/RAM.",
+                  "mitigation": "Implement strict request rate limiting per IP/session, query timeouts, and caching mechanisms (e.g., Redis) for frequent search requests.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "6.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -678,8 +722,8 @@
                 "text": "3.0 Register for Course"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -776,12 +820,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "618d8be1-561d-4551-811d-94428d30db90",
+                  "title": "Over-Enrollment via Race Condition in Registration Logic",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Concurrent Registration request payloads exploit race conditions in 3.0 Register for Course, booking more seats in 03 EnrollmentDB than allowed in 02 Course Catalog DB.",
+                  "mitigation": "Enforce atomic database transactions and row-level locks (SELECT ... FOR UPDATE) during seat availability verification and registration commit.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "7.0"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2429,8 +2495,8 @@
                 "text": "4.0 Approve Overload"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2527,12 +2593,43 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "0f70d09d-af1f-4bd5-b009-eff415451953",
+                  "title": "Unassigned Student Overload Approval (Privilege Escalation)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "An authenticated advisor manipulates request parameters in 4.0 Approve Overload to approve unit overload requests for students outside their assigned domain.",
+                  "mitigation": "Implement fine-grained, object-level access controls (ABAC) to verify advisor-student assignment mapping before modifying records.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "8.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -2668,13 +2765,6 @@
                 "spoofing": 1,
                 "repudiation": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -2795,6 +2885,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Sir Ahdzleebee L. Formentera",
-    "threatTop": 6
+    "threatTop": 10
   }
 }
