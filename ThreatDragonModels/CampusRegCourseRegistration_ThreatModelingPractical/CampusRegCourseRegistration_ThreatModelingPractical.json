@@ -1473,7 +1473,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Sales and prerequisites",
+              "name": "Seats and prerequisites",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1487,7 +1487,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Sales and prerequisites"
+              "Seats and prerequisites"
             ],
             "id": "adbc0f8a-cfea-4a27-82eb-4c5bfc1241cf",
             "source": {
@@ -1658,6 +1658,214 @@
               {
                 "x": 800,
                 "y": 480
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Enrollment records",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Enrollment records"
+            ],
+            "id": "7d989fa5-b9ce-4ef8-92ad-8b0a3fdb495a",
+            "source": {
+              "cell": "bc7a31bd-26d8-4ef7-83c5-850a1492d93a",
+              "port": "15200101-f6c4-4b5f-a8c9-f67c44ab0a56"
+            },
+            "target": {
+              "cell": "645218da-b264-4c14-9529-ae6b8646eb81",
+              "port": "efc5ce40-23ad-4090-b660-bd87b7cc0fb8"
+            },
+            "vertices": [
+              {
+                "x": 1210,
+                "y": 490
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Sync acknowledgement",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Sync acknowledgement"
+            ],
+            "id": "88a0373a-36b7-48f3-bcd2-347b77e6bac2",
+            "source": {
+              "cell": "645218da-b264-4c14-9529-ae6b8646eb81",
+              "port": "efc5ce40-23ad-4090-b660-bd87b7cc0fb8"
+            },
+            "target": {
+              "cell": "bc7a31bd-26d8-4ef7-83c5-850a1492d93a",
+              "port": "15200101-f6c4-4b5f-a8c9-f67c44ab0a56"
+            },
+            "vertices": [
+              {
+                "x": 1270,
+                "y": 553
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Pending overload requests",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Pending overload requests"
+            ],
+            "id": "2db2858a-dfc9-4eb7-ada8-ae982b0fd5ee",
+            "source": {
+              "cell": "07b1d741-46e7-41a9-bfe9-f43966149c6e",
+              "port": "7a263c29-df5a-43c7-8ece-8b63e62f0daa"
+            },
+            "target": {
+              "cell": "f27f6be1-831e-47dd-89c5-dfa8437076df",
+              "port": "81a86900-e258-4919-9771-a9f04597e7a0"
+            },
+            "vertices": [
+              {
+                "x": 390,
+                "y": 800
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Updated student records",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Updated student records"
+            ],
+            "id": "191d3c2e-00c5-428e-b204-d3a179f26d83",
+            "source": {
+              "cell": "bc7a31bd-26d8-4ef7-83c5-850a1492d93a",
+              "port": "ede651fc-84b4-4e7c-a1e3-e87988e8c9bc"
+            },
+            "target": {
+              "cell": "84db7384-d7d3-4a26-bce7-a8f85cfef08c",
+              "port": "2cf23bc8-2479-4085-bd35-b3807a7b409c"
+            },
+            "vertices": [
+              {
+                "x": 810,
+                "y": 320
               }
             ]
           },
