@@ -1092,19 +1092,24 @@
               "threats": [
                 {
                   "id": "d58120ed-5028-4145-b7aa-5f9432e47c0d",
-                  "title": "New STRIDE threat",
+                  "title": "Credentials In-Transit Sniffing (TB: internet to portal)",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Plaintext login credentials intercepted across the untrusted internet boundary.",
+                  "mitigation": "Enforce HTTPS/TLS 1.3 encryption across all public ingress points.",
                   "modelType": "STRIDE",
-                  "new": true,
+                  "new": false,
                   "number": 17,
-                  "score": ""
+                  "score": "8.0"
                 }
               ],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Login credentials"
@@ -1129,7 +1134,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1150,13 +1156,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "dd34dab7-3506-4e07-8a98-095493faee90",
+                  "title": "Modification of Session Token and Role Attributes in Transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "As the session token and role claims are transmitted back to the client, an attacker on the network path intercepts and modifies the payload (e.g., tampering with the JWT payload to alter role: student to role: registrar_staff).",
+                  "mitigation": "Digitally sign tokens using strong cryptographic algorithms (e.g., HMAC-SHA256 or RS256) and validate signatures on every request. Enforce TLS 1.3 across the boundary.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "8.5"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Session token + role"
@@ -3019,6 +3044,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Sir Ahdzleebee L. Formentera",
-    "threatTop": 17
+    "threatTop": 18
   }
 }
