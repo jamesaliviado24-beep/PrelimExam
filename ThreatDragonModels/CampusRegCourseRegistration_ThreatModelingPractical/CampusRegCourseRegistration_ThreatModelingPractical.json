@@ -1166,7 +1166,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1187,13 +1188,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "d8ff6b25-9016-446a-b713-a1e1a653c0d6",
+                  "title": "Credentials In-Transit Sniffing (TB: internet to portal)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Plaintext login credentials intercepted across the untrusted internet boundary.",
+                  "mitigation": "Enforce HTTPS/TLS 1.3 encryption across all public ingress points.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "8.0"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Login credentials"
@@ -1218,7 +1238,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1239,13 +1260,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "29447500-b624-4a51-9cba-eb7d61125255",
+                  "title": "Credentials In-Transit Sniffing (TB: internet to portal)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Plaintext login credentials intercepted across the untrusted internet boundary.",
+                  "mitigation": "Enforce HTTPS/TLS 1.3 encryption across all public ingress points.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "8.0"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Login credentials"
@@ -2000,14 +2040,16 @@
             },
             "attrs": {
               "text": {
-                "text": "D1 Student Records \nDB"
+                "text": "01 Student Records \nDB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2099,18 +2141,38 @@
             "id": "829dd3a8-e00f-49b1-8cc6-98e7ee9c80f4",
             "data": {
               "type": "tm.Store",
-              "name": "D1 Student Records \nDB",
+              "name": "01 Student Records \nDB",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c925a938-a78b-4f67-bb4b-5c9e78eb71c9",
+                  "title": "Direct SQL Execution / Unauthorized Read on Student Profile Data",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Unauthorized queries across the data tier boundary expose sensitive student standing, credentials, and unit loads stored in D1 Student Records DB.",
+                  "mitigation": "Restrict database ingress via network security groups to application processes only; encrypt sensitive data columns at rest using AES-256.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "8.5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -2127,11 +2189,13 @@
                 "text": "02 Course Catalog \nDB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2228,13 +2292,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "4dc186e8-6fc0-49e9-8a88-30ba8b814ace",
+                  "title": "Unauthorized Tampering of Course Prerequisites and Seat Capacities",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker tampers with prerequisite rules or seat caps directly within 02 Course Catalog DB, enabling unauthorized course additions.",
+                  "mitigation": "Restrict database user privileges so the web portal user has read-only access to course catalogs, allowing write permissions only through dedicated admin connections.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "8.0"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -2251,11 +2335,13 @@
                 "text": "03 Enrollment\nDB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2352,13 +2438,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "22efea9d-5303-4e6b-bf9f-7d8dc40f77dc",
+                  "title": "Enrollment Record Deletion / Repudiation of Transaction History",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "Registration records in 03 EnrollmentDB are deleted or overwritten without maintaining immutable audit logs, preventing verification of student actions.",
+                  "mitigation": "Implement append-only transaction logging with cryptographic hashes for all add, drop, and overload records in 03 EnrollmentDB.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "7.5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -2375,8 +2481,8 @@
                 "text": "5.0 Sync to SIS"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2473,12 +2579,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "875a375c-f71d-4029-adb8-648771ba512f",
+                  "title": "Sync Process Manipulation / Denial of Service",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Repeated execution of Trigger Sync exhausts database connection pools between 5.0 Sync to SIS, 03 EnrollmentDB, and Legacy SIS.",
+                  "mitigation": "Queue sync requests asynchronously via a broker (e.g., RabbitMQ) with rate limiting, preventing concurrent redundant sync execution.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "7.0"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2621,15 +2749,6 @@
                 "denialOfService": 0,
                 "elevationOfPrivilege": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -2885,6 +3004,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Sir Ahdzleebee L. Formentera",
-    "threatTop": 10
+    "threatTop": 16
   }
 }
