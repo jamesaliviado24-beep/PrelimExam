@@ -1615,17 +1615,7 @@
                 "x": 330,
                 "y": 520
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "shape": "flow",
@@ -1807,7 +1797,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1828,13 +1819,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "ed7c45ad-2500-4c57-8707-2e3df78bf4bd",
+                  "title": "Unauthorized Disclosure of Prerequisites and Seat Availability Data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An unauthorized entity on the internal network eavesdrops on unencrypted data flows between 02 Course Catalog DB and 3.0 Register for Course, exposing internal course capacity limits, seat reservations, and prerequisite structures before public release.",
+                  "mitigation": "Enforce TLS encryption for all database connections crossing the Data Tier boundary and implement strict database access controls limiting query access strictly to authenticated application service accounts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": "5.0"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Seats and prerequisites"
@@ -2127,7 +2137,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2148,13 +2159,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "874cb030-16d2-47b7-a2f5-6c4615855080",
+                  "title": "Tampering with Legacy Synchronization Acknowledgments",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker on the network path intercepts and modifies the Sync acknowledgement payload sent from Legacy SIS back to process 5.0 Sync to SIS, forging a successful sync response to mask a failed batch synchronization or corrupting transaction status logs.",
+                  "mitigation": "Enforce Mutual TLS (mTLS) with cryptographically signed response payloads across the Legacy Zone boundary, and validate unique transaction UUIDs and nonces for every acknowledgment payload.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": "6.5"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Sync acknowledgement"
@@ -3274,6 +3304,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Sir Ahdzleebee L. Formentera",
-    "threatTop": 29
+    "threatTop": 31
   }
 }
