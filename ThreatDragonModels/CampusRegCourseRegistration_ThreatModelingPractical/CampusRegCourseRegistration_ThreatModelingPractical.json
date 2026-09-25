@@ -2013,7 +2013,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2034,13 +2035,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "7269536f-0c24-483b-9999-7ef8f4f40eb2",
+                  "title": "Unauthorized Disclosure of Sensitive User Records in Transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "As process 1.0 Authenticate User retrieves the User record (containing user profile data, hashed credentials, and role assignments) from D1 Student Records DB, an attacker on the internal network path eavesdrops on the unencrypted database query response to compromise sensitive user identity details.",
+                  "mitigation": "Enforce encrypted database connections (TLS/SSL) across the Data Tier (TB: app to data tier) boundary, store passwords using strong one-way hashing algorithms (such as Argon2id or bcrypt), and restrict database service permissions to read only required authentication attributes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": "8.0"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "User record"
@@ -3304,6 +3324,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Sir Ahdzleebee L. Formentera",
-    "threatTop": 31
+    "threatTop": 32
   }
 }
